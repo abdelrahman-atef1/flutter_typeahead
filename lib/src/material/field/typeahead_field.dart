@@ -660,6 +660,7 @@ class _TypeAheadFieldState<T> extends State<TypeAheadField<T>>
       widget.direction,
       widget.autoFlipDirection,
       widget.autoFlipListDirection,
+      _textEditingController,
     );
 
     widget.suggestionsBoxController?.suggestionsBox = this._suggestionsBox;

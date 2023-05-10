@@ -9,6 +9,7 @@ class SuggestionsBox {
   final AxisDirection desiredDirection;
   final bool autoFlipDirection;
   final bool autoFlipListDirection;
+  final TextEditingController? textEditingController;
 
   OverlayEntry? overlayEntry;
   AxisDirection direction;
@@ -25,8 +26,13 @@ class SuggestionsBox {
       this.direction,
       this.autoFlipDirection,
       this.autoFlipListDirection,
+      this.textEditingController,
       ) : desiredDirection = direction;
 
+  Future getSuggestions() async{
+    textEditingController?.notifyListeners();
+    open();
+  }
   void open() {
     if (this.isOpened) return;
     assert(this.overlayEntry != null);
